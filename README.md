@@ -19,11 +19,18 @@ A service expose API's to manage the deals details
    
 ## usage
 To start the application
-mvn spring-boot:run
-Go to http://localhost:8080/data-warehouse/v1/swagger-ui/index.html
+
 ### Run the service
-1- Run the service locally by adding the vm option -Dspring.profiles.active=dev <br>
-2- Run the service on docker by using the default profile
+1. Run the service locally
+   - add vm option -Dspring.profiles.active=dev
+   - mvn clean install
+   - mvn spring-boot:run
+   - Go to http://localhost:8090/data-warehouse/v1/swagger-ui/index.html
+2. Run the service on docker
+   - mvn package
+   - docker-compose up -d
+   - Go to http://localhost:8080/data-warehouse/v1/swagger-ui/index.html
+
 
 ## configuration
 The configuration can be adjusted in `application.yml` and `application-dev.yml` for internal use
