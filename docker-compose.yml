@@ -1,0 +1,27 @@
+services:
+  app:
+    image: clustered-data-warehouse
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongodb
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017/deals
+
+  mongodb:
+    image: mongodb/mongodb-atlas-local
+    restart: unless-stopped
+    container_name: 'mongo'
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_config:/data/configdb
+      - mongodb_data:/data/db
+
+
+volumes:
+  mongodb_data:
+  mongodb_config:

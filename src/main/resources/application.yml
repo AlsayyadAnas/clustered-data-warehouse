@@ -1,0 +1,24 @@
+server:
+  servlet.context-path: /data-warehouse/v1
+spring:
+  application:
+    name: ClusteredData-Warehouse
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/deals
+      auto-index-creation: true
+#      host: mongodb
+#      port: 27017
+#      database: deals
+springdoc:
+  packages-to-scan: com.progresssoft.clustereddata.warehouse.ClusteredData.Warehouse.controller
+  api-docs:
+    path: /v3/api-docs
+    swagger-ui:
+      path: /swagger-ui.html
+
+logging.level.org.springframework.data.mongodb.core.MongoTemplate: ERROR
+
+
+
+
